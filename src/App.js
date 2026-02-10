@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import Title from './Title';
 import './App.css';
+import ProductDetail from './ProductDetail';
+import Majeur from './Majeur';
+import ProductList from './ProductList';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>React 1</h1>
+      <Title />
+      <p>Salut {props.name}, tu as {props.age} ans</p>
+      <ProductDetail name="Chocolat" price={5} quantity={10} />
+      <Majeur name="Merlin" age={20} />
+
+
+      <h1>React 2</h1>
+      <ProductList products={props.products} />
     </div>
   );
 }
