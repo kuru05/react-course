@@ -1,14 +1,26 @@
 // ProductList.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductPreview from './ProductPreview';
 
+function ProductList() {
+    const [products, setProducts] = useState([]);
 
-function ProductList(props) {
+    useEffect(() => {
+        fetch("http://localhost:3001/get-products")
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setProducts(data);
+            })
+            .catch(err => console.error("Erreur fetching products:", err));
+    }, []);
+
     return (
         <div className="product-list">
-            {props.products.map((product) => (
+            <h2>Nos Produits</h2>
+            {products.map((product, index) => (
                 <ProductPreview
-                    key={product.id} // React needs a unique key for lists
+                    key={index}
                     name={product.name}
                     price={product.price}
                     img={product.img}

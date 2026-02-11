@@ -1,239 +1,294 @@
-/* Layout & Containers */
+/* --- Layout --- */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 2rem;
+  width: 100%;
+}
+
+.page-content {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Navigation --- */
+.navigation {
+  position: sticky;
+  top: 1rem;
+  z-index: 100;
   display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.section-card {
-  background-color: var(--card-bg);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-md);
-  padding: 40px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.section-card:hover {
-  box-shadow: var(--shadow-lg);
-}
-
-.component-wrapper {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  border: 1px solid #e9ecef;
-}
-
-/* Typography */
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 20px;
-  color: var(--primary-color);
-  border-bottom: 2px solid #e9ecef;
-  padding-bottom: 10px;
-}
-
-h2 {
-  font-size: 1.5rem;
-  margin-top: 0;
-  color: var(--text-primary);
-}
-
-.user-info {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  background: #eef1ff;
-  padding: 10px 15px;
-  border-radius: 8px;
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-/* Products */
-.product-list {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
   justify-content: center;
-  padding: 20px 0;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  margin: 0 auto 2rem;
+  width: fit-content;
+
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 50px;
+}
+
+.navigation a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 0.5rem 1.25rem;
+  border-radius: 30px;
+  transition: all 0.2s ease;
+}
+
+.navigation a:hover,
+.navigation a:focus {
+  color: var(--primary-color);
+  background-color: rgba(99, 102, 241, 0.1);
+  /* indigo-500 with opacity */
+}
+
+/* --- Components: Product List --- */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
 .product-preview {
-  background: white;
-  border: 1px solid #e1e4e8;
-  border-radius: var(--border-radius);
-  padding: 16px;
-  width: 250px;
+  background: var(--surface-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
   text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.2s;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  /* Soft shadow */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .product-preview:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   border-color: var(--primary-color);
 }
 
 .product-preview img {
-  max-width: 100%;
-  height: 200px;
+  width: 100%;
+  height: 220px;
   object-fit: contain;
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04));
 }
 
-.product-detail {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  background: white;
-  padding: 20px;
-  border-radius: var(--border-radius);
-}
-
-/* Buttons */
-button {
-  cursor: pointer;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 50px;
+.product-preview h2 {
+  font-size: 1.5rem;
   font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.2s;
-  background: #e0e0e0;
-  color: #333;
+  margin: 0.5rem 0;
+  color: var(--text-main);
 }
 
-button:hover {
+.product-preview .price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-top: auto;
+}
+
+/* --- Components: Add Product Form --- */
+.add-product-form {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: var(--surface-color);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-shadow);
+  border: 1px solid #e2e8f0;
+}
+
+.add-product-form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.add-product-form div {
+  margin-bottom: 1.5rem;
+}
+
+.add-product-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.add-product-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  font-family: var(--font-main);
+}
+
+.add-product-form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.add-product-form button {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.add-product-form button:hover {
+  background-color: var(--primary-hover);
   transform: translateY(-1px);
-  filter: brightness(0.95);
 }
 
-/* CompteurDePersonne Specifics */
+/* --- Components: Contact Data --- */
+.contact-data {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 3rem;
+  background: var(--surface-color);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  box-shadow: var(--glass-shadow);
+}
+
+.contact-data h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.contact-data p {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #f1f5f9;
+  border-radius: var(--radius-md);
+}
+
+/* --- Components: Legacy Exercises (React 1, 2, 3...) --- */
+.exercices-wrapper {
+  display: grid;
+  gap: 3rem;
+}
+
+.section-card {
+  background: var(--surface-color);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f5f9;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.user-info {
+  background: #e0e7ff;
+  /* indigo-100 */
+  color: var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  display: inline-block;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+/* Sub-sections within exercises */
 .sub-section {
-  padding: 20px;
+  padding: 1.5rem;
   text-align: center;
 }
 
 .sub-section.highlight {
-  background: #fff0f0;
-  /* Light red/pink bg for contrast */
-  border-radius: 12px;
+  background: #fff1f2;
+  /* rose-50 */
+  border-radius: var(--radius-lg);
+  border: 1px solid #ffe4e6;
 }
 
 .divider {
   height: 1px;
-  background: #e9ecef;
-  margin: 30px 0;
+  background: #e2e8f0;
+  margin: 2rem auto;
+  width: 80%;
 }
 
-/* Compteur Logic Styles */
-.sub-section p {
-  font-size: 1.2rem;
-  margin: 10px 0;
+/* Styles specific to small exercise components */
+.guess-number-game input,
+.component-wrapper input {
+  padding: 0.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  margin-right: 0.5rem;
 }
 
-.sub-section button {
-  margin: 0 10px;
-  min-width: 100px;
-}
-
-/* Specific button colors for counter */
-button:nth-of-type(1) {
-  /* Assuming Increment is first */
-  background: #4cd137;
+.guess-number-game button,
+.component-wrapper button {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--secondary-color);
   color: white;
-}
-
-button:nth-of-type(2) {
-  /* Assuming Decrement is second */
-  background: #ff6b6b;
-  color: white;
-}
-
-/* Magasin Status */
-.magasin-status {
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-}
-
-.status-open {
-  background-color: #d4edda;
-  color: #155724;
-}
-
-.status-closed {
-  background-color: #f8d7da;
-  color: #721c24;
-}
-
-.full-alert {
-  background-color: #ff4757;
-  color: white;
-  padding: 10px;
-  border-radius: 8px;
-  margin-top: 15px;
-  font-weight: bold;
-  animation: popIn 0.3s ease;
-}
-
-@keyframes popIn {
-  0% {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* Guess Number Game */
-.guess-input {
-  padding: 10px;
-  font-size: 1.1rem;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  width: 150px;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.guess-input:focus {
-  border-color: var(--primary-color);
-  outline: none;
-}
-
-.message {
-  font-weight: bold;
-  font-size: 1.2rem;
-  padding: 10px;
-  border-radius: 8px;
-  margin-top: 10px;
-}
-
-.message.info {
-  background-color: #e3f2fd;
-  color: #0d47a1;
+  border: none;
+  cursor: pointer;
+  margin: 0.25rem;
 }
 
 .message.success {
-  background-color: #d4edda;
-  color: #155724;
-  animation: popIn 0.5s ease;
+  background-color: #dcfce7;
+  color: #15803d;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-top: 1rem;
+}
+
+.message.info {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-top: 1rem;
 }

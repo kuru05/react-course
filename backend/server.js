@@ -4,7 +4,9 @@ const app = express();
 const port = 3001;
 
 app.use(cors());
-const products = [
+app.use(express.json());
+
+let products = [
     {
         name: "Orange",
         price: 5,
@@ -28,6 +30,12 @@ const products = [
 
 app.get('/get-products', (req, res) => {
     res.json(products);
+});
+
+app.post('/new-product', (req, res) => {
+    const newProduct = req.body;
+    products.push(newProduct);
+    res.json({ message: 'Produit ajouté !', product: newProduct });
 });
 
 app.listen(port, () => {
