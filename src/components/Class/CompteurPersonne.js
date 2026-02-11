@@ -30,7 +30,7 @@ export default class CompteurDePersonne extends Component {
                 <button onClick={this.Increment}>Inc.</button>
                 <button onClick={this.Decrement}>Déc.</button>
 
-                {this.state.count >= 10 ? <p>La pièce est pleine</p> : null}
+                {this.state.count >= 10 ? <p className="full-alert">La pièce est pleine</p> : null}
             </div>
         );
     }

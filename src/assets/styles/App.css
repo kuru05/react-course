@@ -1,0 +1,239 @@
+/* Layout & Containers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.section-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  padding: 40px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.component-wrapper {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+/* Typography */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  color: var(--text-primary);
+}
+
+.user-info {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  background: #eef1ff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* Products */
+.product-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.product-preview {
+  background: white;
+  border: 1px solid #e1e4e8;
+  border-radius: var(--border-radius);
+  padding: 16px;
+  width: 250px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-preview:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.product-preview img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.product-detail {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: var(--border-radius);
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  background: #e0e0e0;
+  color: #333;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.95);
+}
+
+/* CompteurDePersonne Specifics */
+.sub-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.sub-section.highlight {
+  background: #fff0f0;
+  /* Light red/pink bg for contrast */
+  border-radius: 12px;
+}
+
+.divider {
+  height: 1px;
+  background: #e9ecef;
+  margin: 30px 0;
+}
+
+/* Compteur Logic Styles */
+.sub-section p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.sub-section button {
+  margin: 0 10px;
+  min-width: 100px;
+}
+
+/* Specific button colors for counter */
+button:nth-of-type(1) {
+  /* Assuming Increment is first */
+  background: #4cd137;
+  color: white;
+}
+
+button:nth-of-type(2) {
+  /* Assuming Decrement is second */
+  background: #ff6b6b;
+  color: white;
+}
+
+/* Magasin Status */
+.magasin-status {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.status-open {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-closed {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.full-alert {
+  background-color: #ff4757;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-weight: bold;
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Guess Number Game */
+.guess-input {
+  padding: 10px;
+  font-size: 1.1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 150px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.guess-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.message {
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.message.info {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  animation: popIn 0.5s ease;
+}

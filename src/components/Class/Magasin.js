@@ -12,10 +12,11 @@ export default class Magasin extends React.Component {
             <div>
                 <p>Heure actuelle : {hour}h</p>
                 {/* Affichage conditionnel */}
+                {/* Affichage conditionnel */}
                 {isOpen ? (
-                    <p style={{ color: 'green' }}>Magasin ouvert</p>
+                    <p className="magasin-status status-open">Magasin ouvert</p>
                 ) : (
-                    <p style={{ color: 'red' }}>Magasin fermé</p>
+                    <p className="magasin-status status-closed">Magasin fermé</p>
                 )}
             </div>
         );
