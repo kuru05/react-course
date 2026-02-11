@@ -1,9 +1,9 @@
 function ProductPreview(props) {
     return (
-        <div>
-            <p>{props.name}</p>
-            <p>{props.price}</p>
+        <div className="product-preview">
             <img src={props.img} alt={props.name} />
+            <h2>{props.name}</h2>
+            <p className="price">{props.price} €</p>
         </div>
     );
 }

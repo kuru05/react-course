@@ -1,10 +1,13 @@
 function ProductDetail(props) {
     return (
-        <div>
-            <h1>Produit</h1>
-            <p>{props.name}</p>
-            <p>{props.price}</p>
-            <p>{props.quantity}</p>
+        <div className="product-detail">
+            <img src={props.img} alt={props.name} />
+            <div className="product-detail-info">
+                <h1>{props.name}</h1>
+                <p className="price">{props.price} €</p>
+                <p className="quantity">Stock: {props.quantity}</p>
+                <button>Ajouter au panier</button>
+            </div>
         </div>
     );
 }
