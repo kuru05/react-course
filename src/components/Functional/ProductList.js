@@ -16,16 +16,18 @@ function ProductList() {
     }, []);
 
     return (
-        <div className="product-list">
-            <h2>Nos Produits</h2>
-            {products.map((product, index) => (
-                <ProductPreview
-                    key={index}
-                    name={product.name}
-                    price={product.price}
-                    img={product.img}
-                />
-            ))}
+        <div className="product-list-page">
+            <h2 className="section-title">Nos Produits</h2>
+            <div className="product-grid">
+                {products.map((product, index) => (
+                    <ProductPreview
+                        key={index}
+                        name={product.name}
+                        price={product.price}
+                        img={product.img}
+                    />
+                ))}
+            </div>
         </div>
     );
 }
