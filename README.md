@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Projet de Cours React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Une application web full-stack construite avec un frontend React et un backend Express.js. Ce projet sert de plateforme d'apprentissage pour les concepts React, incluant les composants, la gestion d'état et l'intégration d'API.
 
-## Available Scripts
+## 🚀 Fonctionnalités
 
-In the project directory, you can run:
+- **Gestion des Produits**: Afficher une liste de produits avec images et prix.
+- **Ajout de Produits**: Interface pour ajouter de nouveaux produits au backend (en mémoire).
+- **Interface UI Interactive**: Design moderne et responsive avec des effets de glassmorphisme.
+- **API REST**: Serveur Express simple gérant les données des produits.
 
-### `npm start`
+## 🛠️ Stack Technique
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Frontend
+- **React 19**: Bibliothèque UI.
+- **CSS3**: Styles personnalisés avec variables, grid/flexbox, et animations.
+- **Create React App**: Structure du projet.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+- **Node.js**: Environnement d'exécution.
+- **Express 5**: Framework web pour l'API.
+- **CORS**: Middleware pour gérer le partage de ressources cross-origin.
 
-### `npm test`
+## 📋 Prérequis
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Avant de commencer, assurez-vous d'avoir installé :
+- [Node.js](https://nodejs.org/) (v14 ou supérieur)
+- [npm](https://www.npmjs.com/) (généralement inclus avec Node.js)
 
-### `npm run build`
+## ⚙️ Installation & Configuration
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Ce projet nécessite l'exécution de deux terminaux séparés : un pour le backend et un pour le frontend.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Configuration du Backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Le backend tourne sur le port `3001` et sert les données des produits.
 
-### `npm run eject`
+```bash
+# Naviguer dans le dossier backend
+cd backend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Installer les dépendances
+npm install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Démarrer le serveur
+node server.js
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+L'utilisateur devrait voir : `Backend lancé sur http://localhost:3001`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. Configuration du Frontend
 
-## Learn More
+Le frontend tourne sur le port `3000` (par défaut) et fait des requêtes au backend.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+# Revenir au dossier racine (si vous étiez dans backend)
+cd ..
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Installer les dépendances
+npm install
 
-### Code Splitting
+# Démarrer l'application React
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+L'application s'ouvrira automatiquement à l'adresse `http://localhost:3000`.
 
-### Analyzing the Bundle Size
+## 🔌 Endpoints API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Le backend fournit les endpoints REST suivants :
 
-### Making a Progressive Web App
+- **GET** `/get-products`
+  - Retourne la liste de tous les produits disponibles.
+- **POST** `/new-product`
+  - Ajoute un nouveau produit à la liste.
+  - Corps de la requête : Objet JSON représentant le produit.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📁 Structure du Projet
 
-### Advanced Configuration
+```
+cours/
+├── backend/            # Serveur Express et logique backend
+│   ├── server.js       # Point d'entrée principal pour l'API
+│   └── package.json    # Dépendances du backend
+├── src/                # Code source React
+│   ├── assets/         # Fichiers statiques (images, styles globaux)
+│   ├── components/     # Composants React (Fonctionnels & Classes)
+│   ├── App.js          # Composant principal de l'application
+│   └── index.js        # Point d'entrée pour React
+├── public/             # Fichiers publics statiques
+└── package.json        # Dépendances du frontend
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📝 Licence
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Ce projet est à but éducatif, une partie "Anciens exercices" permet de voir l'avancement du module REACT.
